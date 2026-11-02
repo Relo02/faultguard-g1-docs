@@ -12,7 +12,7 @@ To read the documentation, open the [published site](https://relo02.github.io/fa
 
 ## Run the site on your laptop
 
-Run a local copy to read the documentation offline, or to preview changes before pushing them. You need [Git](https://git-scm.com/downloads) and [Python](https://www.python.org/downloads/) 3.10 or later.
+Run a local copy to read the documentation offline, or to preview changes before pushing them. You need [Git](https://git-scm.com/downloads) and [Python](https://www.python.org/downloads/) 3.11 or later.
 
 **1. Download the repository**
 
@@ -45,7 +45,7 @@ pip install -r requirements-docs.txt
 mkdocs serve
 ```
 
-Open <http://127.0.0.1:8000> in your browser. The page reloads each time you save a file. Press `Ctrl+C` in the terminal to stop the server.
+Open <http://127.0.0.1:8000/faultguard-g1-docs/> in your browser. The page reloads each time you save a file. Press `Ctrl+C` in the terminal to stop the server.
 
 **Next time**, go to the `faultguard-g1-docs` folder, activate the environment again (`source .venv/bin/activate`, or `.venv\Scripts\Activate.ps1` on Windows), and run `mkdocs serve`.
 
@@ -57,7 +57,7 @@ Diagrams load their rendering library from the internet, so they need a connecti
 |---|---|
 | `mkdocs: command not found` | The environment is not active. Run the activate command from step 2. |
 | `ensurepip is not available` on Debian or Ubuntu | Run `sudo apt install python3-venv`, delete the `.venv` folder, and repeat step 2. |
-| `Address already in use` | Port 8000 is taken. Run `mkdocs serve -a 127.0.0.1:8001` and open that address instead. |
+| `Address already in use` | Port 8000 is taken. Run `mkdocs serve -a 127.0.0.1:8001` and open <http://127.0.0.1:8001/faultguard-g1-docs/> instead. |
 | PowerShell refuses to run `Activate.ps1` | Run `Set-ExecutionPolicy -Scope Process RemoteSigned`, then activate again. |
 
 ## Change the documentation
