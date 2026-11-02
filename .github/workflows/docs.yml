@@ -22,7 +22,7 @@ jobs:
       - run: pip install -r requirements-docs.txt
       - name: Check requirement IDs and traceability
         run: python tools/check_traceability.py
-      - name: Build (strict: broken links fail the build)
+      - name: Build in strict mode, so broken links fail
         run: mkdocs build --strict
       - uses: actions/upload-pages-artifact@v3
         with:
