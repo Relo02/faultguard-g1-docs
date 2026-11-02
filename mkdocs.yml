@@ -1,0 +1,122 @@
+site_name: FaultGuard-G1
+site_description: Technical documentation of FaultGuard-G1, a dependable, extensible, real-time diagnostic system for a Unitree G1 humanoid.
+site_url: https://relo02.github.io/faultguard-g1-docs/
+repo_url: https://github.com/Relo02/faultguard-g1-docs
+repo_name: Relo02/faultguard-g1-docs
+edit_uri: edit/main/docs/
+strict: true
+validation:
+  anchors: warn
+  unrecognized_links: warn
+  absolute_links: warn
+
+theme:
+  name: material
+  icon:
+    logo: material/robot-outline
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle: {icon: material/weather-night, name: Dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle: {icon: material/weather-sunny, name: Light mode}
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.tabs.link
+    - search.highlight
+
+extra_css:
+  - assets/extra.css
+
+extra_javascript:
+  - assets/diagram-zoom.js
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc: {permalink: true, toc_depth: 3}
+  - pymdownx.details
+  - pymdownx.highlight: {anchor_linenums: false}
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed: {alternate_style: true}
+  - pymdownx.tasklist: {custom_checkbox: true}
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: index.md
+  - Overview:
+      - Objectives: overview/objectives.md
+      - System at a glance: overview/system.md
+      - Scope and boundaries: overview/scope.md
+      - Telemetry data: overview/dataset.md
+      - Deliverables: overview/deliverables.md
+  - Requirements:
+      - requirements/index.md
+      - Scenarios: requirements/scenarios.md
+      - Domain model: requirements/domain-model.md
+      - Fault catalogue: requirements/fault-catalogue.md
+      - Functional requirements: requirements/functional.md
+      - Non-functional requirements: requirements/non-functional.md
+      - Assumptions and constraints: requirements/assumptions.md
+      - State machines: requirements/state-machines.md
+  - Architecture:
+      - architecture/index.md
+      - Component view: architecture/components.md
+      - Event catalogue: architecture/events.md
+      - Runtime view: architecture/runtime.md
+      - Concurrency and backpressure: architecture/concurrency.md
+      - Styles and patterns: architecture/patterns.md
+      - Technology and deployment: architecture/stack.md
+  - Low-level design:
+      - design/index.md
+      - Code layout: design/layout.md
+      - Domain types: design/domain-types.md
+      - Event bus: design/event-bus.md
+      - Sources and ingestion: design/ingestion.md
+      - Fault injection: design/fault-injection.md
+      - Rules: design/rules.md
+      - ML detectors: design/ml.md
+      - Evidence fusion: design/fusion.md
+      - Classification and localization: design/classify-localize.md
+      - Diagnostic engine: design/diagnostic-engine.md
+      - Alerts and event log: design/alerts-log.md
+      - Self-monitoring: design/self-monitoring.md
+      - Guided diagnosis: design/guided.md
+      - Operator UI: design/ui.md
+      - Configuration: design/configuration.md
+  - Verification:
+      - Test strategy: verification/strategy.md
+      - Evaluation metrics: verification/evaluation.md
+      - Traceability: verification/traceability.md
+  - Project execution:
+      - Roadmap: project/roadmap.md
+      - Step-by-step playbook: project/playbook.md
+      - Working rules: project/rules.md
+      - Risks and cut order: project/risks.md
+      - Open decisions: project/decisions.md
+      - RASD review findings: project/rasd-review.md
+  - Reference:
+      - Decision records: reference/adrs.md
+      - Glossary: reference/glossary.md
+      - References: reference/references.md

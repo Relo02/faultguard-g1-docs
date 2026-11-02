@@ -1,0 +1,53 @@
+:root {
+  --md-primary-fg-color: #0b4a7f;
+  --md-primary-fg-color--light: #2f6ea3;
+  --md-primary-fg-color--dark: #083a64;
+  --md-accent-fg-color: #1f7ab8;
+  --fg-healthy: #1b7f4b;
+  --fg-suspected: #a86a00;
+  --fg-confirmed: #b3261e;
+  --fg-ack: #6a3fb5;
+  --fg-cleared: #2b6f9e;
+}
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0b4a7f;
+  --md-accent-fg-color: #6db6ea;
+  --fg-healthy: #58c98b;
+  --fg-suspected: #e0a83c;
+  --fg-confirmed: #f0857e;
+  --fg-ack: #b79bea;
+  --fg-cleared: #79bbe6;
+}
+.md-typeset table:not([class]) { font-size: .72rem; }
+.md-typeset table:not([class]) td:first-child { white-space: nowrap; }
+.md-typeset .mermaid { text-align: center; }
+.st { font-family: var(--md-code-font-family); font-size: .85em; font-weight: 700; white-space: nowrap; }
+.st-h { color: var(--fg-healthy); }
+.st-s { color: var(--fg-suspected); }
+.st-c { color: var(--fg-confirmed); }
+.st-a { color: var(--fg-ack); }
+.st-l { color: var(--fg-cleared); }
+.md-typeset .admonition.baseline, .md-typeset details.baseline { border-color: #0b4a7f; }
+.md-typeset .baseline > .admonition-title, .md-typeset .baseline > summary { background-color: rgba(11, 74, 127, .1); }
+.md-typeset .baseline > .admonition-title::before, .md-typeset .baseline > summary::before { background-color: #0b4a7f; -webkit-mask-image: var(--md-admonition-icon--note); mask-image: var(--md-admonition-icon--note); }
+.md-typeset .admonition.proposed, .md-typeset details.proposed { border-color: #a86a00; }
+.md-typeset .proposed > .admonition-title, .md-typeset .proposed > summary { background-color: rgba(168, 106, 0, .1); }
+.md-typeset .proposed > .admonition-title::before, .md-typeset .proposed > summary::before { background-color: #a86a00; -webkit-mask-image: var(--md-admonition-icon--question); mask-image: var(--md-admonition-icon--question); }
+
+/* Wide diagrams and tables need room; the theme's default column is narrow. */
+.md-grid { max-width: 1500px; }
+
+/* Click to enlarge a diagram (see assets/diagram-zoom.js). */
+.md-typeset .mermaid { cursor: zoom-in; }
+.md-typeset .mermaid.fg-zoom {
+  position: fixed;
+  inset: 2vh 2vw;
+  z-index: 10;
+  margin: 0;
+  padding: 1rem;
+  overflow: auto;
+  cursor: zoom-out;
+  background: var(--md-default-bg-color);
+  border-radius: .3rem;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .55);
+}
