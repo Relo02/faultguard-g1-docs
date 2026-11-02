@@ -34,6 +34,7 @@ classDiagram
     nominalRate : Frequency
   }
   class TelemetrySample {
+    <<abstract>>
     sequenceNo : Integer
     sourceTime : Timestamp
     receiveTime : Timestamp
@@ -73,10 +74,11 @@ classDiagram
   }
   Robot "1" *-- "1..*" BodyRegion
   BodyRegion "1" *-- "1..*" Joint
-  Robot "1" --> "1..*" Sensor
-  Sensor "0..1" --> "0..*" TelemetryStream : produces
-  Sensor "0..1" --> "0..1" Joint : measures
-  TelemetrySource "1" --> "1..*" TelemetryStream : provides
+  Robot "1" *-- "1..*" Sensor
+  Robot "1" --> "0..*" TelemetrySource : observes
+  Sensor "0..1" --> "1" TelemetryStream : produces
+  Sensor "0..*" --> "0..1" Joint : measures
+  TelemetryStream "1..*" --> "1" TelemetrySource : provides
   TelemetryStream "1" *-- "0..*" TelemetrySample
   TelemetrySample <|-- Measurement
   TelemetrySample <|-- JointCommand
@@ -86,7 +88,7 @@ classDiagram
 ```
 
 !!! note
-    The cardinality on `Sensor`–`Joint` is simplified here: the RASD figure shows a joint encoder measuring exactly one joint. In the G1 data, `JointCommand` exists for arm and hand joints only, and `feedForwardTorque` for arm joints only; see [Telemetry data](../overview/dataset.md).
+    In the G1 data, `JointCommand` exists for arm and hand joints only, and `feedForwardTorque` for arm joints only; see [Telemetry data](../overview/dataset.md).
 
 ## Evidence and diagnosis
 
@@ -119,9 +121,11 @@ classDiagram
     correlationId : ID
   }
   class MonitoredComponent {
+    <<abstract>>
     id : String
   }
   class DiagnosticCheck {
+    <<abstract>>
     name : String
     enabled : Boolean
   }
